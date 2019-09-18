@@ -13,25 +13,27 @@ var tableData = data;
 // mongoimport --db data; --collection inventory --authenticationDatabase admin - username < admin > --password < admin > --drop --file ~\static\data.js;
 
 //                      <input class="form-control" id="datetime"
-var inputValue = "datetime";
+button.on("click", () => {
+  d3.event.preventDefault();
+  var inputDateId = d3.select('#datetime');
+  var inputDateVal = inputDateId.property("value");
+  console.log(inputDateVal);
+
+  tableData.filter(item => item.datetime === inputDateVal);
+
+  // ********************************
+  // Get a reference to the table body
 
 
-var filteredData = tableData.filter(item => item.datetime === inputValue);
-
-// ********************************
-// Get a reference to the table body
-
-
-console.log(filteredData);
-// ********************************************
-var tbody = d3.select("tbody");
+  console.log(tableData);
+  // ********************************************
+  var tbody = d3.select("tbody");
 
 
-data.forEach(filteredData => {
-  var row = tbody.append("tr");
-  Object.entries(filteredData).forEach(([key, value]) => {
-    var cell = row.append("td");
-    cell.text(value);
-  });
-});
-
+  data.forEach(tableData => {
+    var row = tbody.append("tr");
+    Object.entries(tableData).forEach(([value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+})
