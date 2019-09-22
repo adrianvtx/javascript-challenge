@@ -14,7 +14,55 @@ var inputDateId = d3.select("#datetime");
 // var inputDateVal = inputDateId.property("value").trim();
 var inputDateVal = inputDateId.text();
 
-console.log(inputDateVal);
+// from 08  stock act and avSnippets
+function getData() {
+    data(function(data) {
+        var datetime = unpack(data.dataset.data, 0);
+        var city = unpack(data.dataset.data, 1);
+        var state = unpack(data.dataset.data, 2);
+        var country = unpack(data.dataset.data, 3);
+        var shape = unpack(data.dataset.data, 4);
+        var durationMinutes = unpack(data.dataset.data, 5);
+        var comments = unpack(data.dataset.data, 6);
+        var volume = unpack(data.dataset.data, 7);
+        buildTable(
+            datetime,
+            city,
+            state,
+            country,
+            shape,
+            durationMinutes,
+            comments
+        );
+    });
+}
+
+// from 08  stock act and avSnippets
+function buildTable(
+    datetime,
+    city,
+    state,
+    country,
+    shape,
+    durationMinutes,
+    comments
+) {
+    var table = d3.select("#ufo-table");
+    var tbody = table.select("tbody");
+    var trow;
+    for (var i = 0; i < 12; i++) {
+        trow = tbody.append("tr");
+        trow.append("td").text(datetime[i]);
+        trow.append("td").text(city[i]);
+        trow.append("td").text(state[i]);
+        trow.append("td").text(country[i]);
+        trow.append("td").text(shape[i]);
+        trow.append("td").text(durationMinutes[i]);
+        trow.append("td").text(comments[i]);
+    }
+}
+
+
 
 // Submit Button handler
 function handleSubmit() {
@@ -22,14 +70,14 @@ function handleSubmit() {
     d3.event.preventDefault();
 
     // Select the input value from the form
-    var ufoTable = d3.select("#ufo-table").node().value;
+    var ufoTable = d3.select("filter-btn").node().value;
     console.log(ufoTable);
 
     // clear the input value
-    d3.select("#ufo-table").node().value = "";
+    d3.select("#filter-btn").node().value = "";
 
-    // Build the plot with the new stock
-    buildPlot(ufoTable);
+    // Build the table with the filtered data
+    buildTable(ufoTable);
 }
 
 
@@ -47,9 +95,9 @@ d3.select("#filter-btn").on("click", function() {
             cell.text(value);
         });
     });
-});
+} + 76);
 
-d3.select("#table-area")
+d3.select("#ufo-table")
     .datum(data)
     .call(myTable);
 // var tbody = d3.select("tbody");
