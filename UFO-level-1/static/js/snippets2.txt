@@ -1,0 +1,34 @@
+filter.forEach(f => dataResult = dataResult.filter(f));
+console.log(dataResult)
+
+
+
+
+var filterDate= document.getelementbyid("dateFilter").value 
+table.filter(d=> d.date < Date.parse(filterDate))
+
+    var filterArray = [s => s.datetime.value == compValue1.value];
+
+filterArray.forEach(f => Data = Data.filter(f));
+
+filterArray 
+= sight => sight.datetime === dateFrom or sight => sight.city === city or so on (depending on the field
+
+
+let filter = {
+    datetime: date.parse(document.getElementById('dateFilter').value,
+    city: document.getElementById('cityFilter').value,
+    state: document.getElementById('stateFilter').value,
+    country: document.getElementById('countryFilter').value,
+    shape: document.getElementById('shapeFilter').value,
+    durationMinutes: document.getElementById('durationMinutesFilter').value,
+    comments: document.getElementById('commentsFilter').value
+}
+
+filteredData = data.filter(function(d) {
+   for (let key in filter) {
+      if (d[key] === undefined || d[key] != filter[key])
+         return false;
+   }
+   return true;
+});

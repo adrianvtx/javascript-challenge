@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "path": "D:/GIT_AV_REPOS/javascript-challenge"
+      "path": "D:/GIT_AV_REPOS/javascript-challenge/UFO-level-1"
     }
   ],
   "settings": {
@@ -9,16 +9,13 @@
     "editor.codeLens": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.insertSpaces": false,
-    "editor.largeFileOptimizations": false,
+    "editor.largeFileOptimizations": true,
     "editor.parameterHints.cycle": true,
     "editor.tabCompletion": "on",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "files.autoGuessEncoding": true,
-    "files.associations": {
-      "*.html": "html",
-      "*.js": "javaScript"
+    "files.autoGuessEncoding": true
     }
   }
 }

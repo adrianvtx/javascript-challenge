@@ -1,0 +1,30 @@
+{
+  {
+    "extends": "eslint:recommended",
+    "rules": {
+        "consistent-return": 2,
+        "indent"           : [1, 4],
+        "no-else-return"   : 1,
+        "semi"             : [1, "always"],
+        "space-unary-ops"  : 2
+    }
+}
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "jsx": true,
+      "parser": "esprima",
+      "rules": {
+        "semi": "error"
+      }
+    }
+  },
+  "plugins": ["a-plugin"],
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "processor": "a-plugin/markdown"
+    }
+  ]
+}

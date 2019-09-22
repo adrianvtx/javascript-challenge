@@ -1,6 +1,6 @@
 // from data.js
-var tableData = data;
-// console.log(tableData);
+const tableData = new Array(data);
+console.log(tableData);
 
 // mongoimport --db data; --collection inventory --authenticationDatabase admin - username < admin > --password < admin > --drop --file ~\static\data.js;
 
@@ -17,45 +17,57 @@ var tableData = data;
 //     });
 // }
 
+function buildTable() {
+    var tbody = d3.select("tbody");
+    data.forEach((tableData) => {
+        // console.log(tableData);
+        var row = tbody.append("tr");
+        Object.entries(tableData).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
+}
 
-// function buildTable() {
-//     var tbody = d3.select("tbody");
-//     data.forEach(tableData => {
-//         // console.log(tableData);
-//         var row = tbody.append("tr");
-//         Object.entries(tableData).forEach(([key, value]) => {
-//             var cell = row.append("td");
-//             cell.text(value);
-//         });
-//     });
-// }
+buildTable();
 
-// fillTable();
+// var dateBut = d3.select("#filter-btn");
 
-// var dateBut = d3.select('#filter-btn');
-
-var inputDateId = d3.select("#datetime").node().value;
-var compValue1 = inputDateId;
-
+// ("use strict");
 // d3.select("#filter-btn").on("click", function() {
-//     ("use strict");
 //     d3.event.preventDefault();
 //     var tbody = d3.select("tbody");
 //     tbody.html("");
-//     var filterArray = [s => s.datetime === compValue1];
-//     filterArray.forEach(f => (tableData = tableData.filter(f)));
-//     console.log(filterArray);
-//     // console.log(compValue1);
-//     // console.log(tableData);
+//     var inputDateId = d3.select("#table-area").node().value;
+//     var compValue1 = inputDateId;
+//     var filterDate = document.getElementById("filters").value;
+//     filterArray = [
+//         filter
+//     ]
+//     filterArray.forEach(f => data = data.filter(f));
 //     var row = tbody.append(`tr`);
-//     // buildTable(tableData);
-//     // fillTable(filterArray);
-//     // buildTable(tableData);
 //     Object.entries(tableData).forEach(([key, value]) => {
 //         var cell = row.append(`td`);
 //         cell.text(value);
 //     });
 // });
+
+let filter = {
+    Date: Date.parse(document.getElementById("date")).value
+        // City: document.getElementById("cityFilter").value,
+        // State: document.getElementById("stateFilter").value,
+        // Country: document.getElementById("countryFilter").value,
+        // Shape: document.getElementById("shapeFilter").value,
+        // Duration: document.getElementById("durationMinutesFilter").value,
+        // Comments: document.getElementById("commentsFilter").value
+};
+
+filteredData = tableData.filter(function(d) {
+    for (let key in filter) {
+        if (d[key] === undefined || d[key] != filter[key]) return false;
+    }
+    return true;
+});
 
 // // from 08  stock act and avSnippets
 // function buildTable(
@@ -82,23 +94,20 @@ var compValue1 = inputDateId;
 //     }
 // }
 
+// // Submit Button handler
+// function handleSubmit() {
+//     // Prevent the page from refreshing
+//     d3.event.preventDefault();
+//     // Select the input value from the form
+//     var ufoTable = d3.select("filter-btn").node().value;
+//     console.log(ufoTable);
 
+//     // clear the input value
+//     d3.select("#filter-btn").node().value = "";
 
-// Submit Button handler
-function handleSubmit() {
-    // Prevent the page from refreshing
-    d3.event.preventDefault();
-
-    // Select the input value from the form
-    var ufoTable = d3.select("filter-btn").node().value;
-    console.log(ufoTable);
-
-    // clear the input value
-    d3.select("#filter-btn").node().value = "";
-
-    // Build the table with the filtered data
-    buildTable(ufoTable);
-}
+//     // Build the table with the filtered data
+//     buildTable(ufoTable);
+// }
 
 // handleSubmit();
 
@@ -128,7 +137,6 @@ function handleSubmit() {
 //     tab.appendChild(tr);
 // }
 // body.appendChild(tab);
-
 
 // // from 08  stock act and avSnippets
 // function getData() {
