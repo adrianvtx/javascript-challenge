@@ -1,14 +1,13 @@
-﻿-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
-    <link rel="stylesheet" href="static/css/style.css" />
+    <meta charset="utf-8">
+    <title>UFO Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
@@ -17,8 +16,8 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">UFO Sightings
-              <img class="nav-ufo" src="static/images/ufo.svg" />
-            </a>
+                        <img class="nav-ufo" src="static/images/ufo.svg">
+                    </a>
                 </div>
             </div>
         </nav>
@@ -38,20 +37,19 @@
                                         <ul class="list-group" id="filters">
                                             <li class="filter list-group-item">
                                                 <label for="date">Enter a Date</label>
-                                                <input class="form-control" id="date" type="datetime" placeholder="1/11/2011" />
+                                                <input class="form-control" id="datetime" type="text"
+                                                    placeholder="1/11/2011">
                                             </li>
                                         </ul>
                                     </div>
-                                    <button id="filter-btn" type="button" class="btn btn-default">
-                      Filter Table
-                    </button>
+                                    <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
                                 </form>
                             </div>
                         </div>
                     </aside>
                 </div>
                 <div class="col-md-10">
-                    <div id="table-area" class="myTable">
+                    <div id="table-area" class="">
                         <table id="ufo-table" class="table table-striped">
                             <thead>
                                 <tr>

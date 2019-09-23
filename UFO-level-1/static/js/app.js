@@ -3,8 +3,6 @@ var tableData = data;
 console.log(tableData);
 
 var tbody = d3.select("tbody");
-var inputDateId = d3.select("#datetime").property(value);
-console.log(inputDateId);
 
 data.forEach((tableData) => {
     // console.log(tableData);
@@ -20,7 +18,7 @@ var dateBut = d3.select("#filter-btn");
 dateBut.on("click", function() {
     d3.event.preventDefault();
     tbody.html("");
-    var inputDateId = d3.select("#datetime").property.("value");
+    var inputDateId = d3.select("#datetime").property("value");
     var filterData = tableData.filter(date => date.datetime === inputDateId);
     filterData.forEach(itInstance => {
         var row = tbody.append(`tr`);
