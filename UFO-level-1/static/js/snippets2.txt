@@ -32,3 +32,47 @@ filteredData = data.filter(function(d) {
    }
    return true;
 });
+
+//*************************************************************
+
+// tbody.html("");
+// console.log(inputUser.city);
+// console.log((tableData));
+
+// Create empty arrays to store the dish and spice values
+// var dateArr = [];
+// var cityArr = [];
+// var stateArr = [];
+// var countryArr = [];
+// var shapeArr = [];
+// var durationArr = [];
+// var commentsArr = [];
+
+// // Iterate through each data object
+// inputUser.forEach((inputUser) => {
+//   // Iterate through each key and value
+//   Object.entries(inputUser).forEach(([key, value]) => {
+//     // Use the key to determine which array to push the value to
+//     if (key === "Date") {
+//       dateArr.push(key, value);
+//     }
+//     else if (key === "City") {
+//       cityArr.push(key, value);
+//     }
+//     else if (key === "State") {
+//       stateArr.push(key, value);
+//     }
+//     else if (key === "Country") {
+//       countryArr.push(key, value);
+//     }
+//     else if (key === "Shape") {
+//     shapeArr.push(key, value);
+//     }
+//     else if (key === "Duration") {
+//     durationArr.push(key, value);
+//     }
+//     else {
+//     commentsArr.push(key, value);
+//     }
+//    });
+// });
